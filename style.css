@@ -13,6 +13,12 @@ html {
   
 }
 
+.img {
+  width: 20%;
+  height: 20%;
+  size: 20%;
+}
+
 @keyframes fade {
   0%,100% {opacity: 0 }
   100% {opacity: 1}
