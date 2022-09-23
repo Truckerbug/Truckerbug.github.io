@@ -1,38 +1,48 @@
-.html {
-  background: black;
-}
-
-.header {
-  opacity: 1;
-  animation: fade 24s linear;
-  position: absolute;
-  top: 75%;
-  left: 39%;
-  margin: 0.4em;
-  color: rgb(255,255,255)
-  
-}
-
-.img {
-  width: 20%;
-  height: 20%;
-  size: 20%;
-}
-
-@keyframes fade {
-  0%,100% {opacity: 0 }
-  100% {opacity: 1}
-}
-
-.body {
+.dark-background {
   background-color: black;
 }
-
-.center-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header {
   text-align: center;
-  min-height: 100vh;
+  font-family: Arial;
+  font-size: 80px;
   color: white;
+}
+.center-screen {
+  text-align: center;
+}
+.fade-in-text {
+  text-align: center;
+  font-family: Arial;
+  font-size: 10px;
+  color: white;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
