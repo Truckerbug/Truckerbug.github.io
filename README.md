@@ -1,2 +1,2 @@
 # Truckerbug.github.io
-## Goto Truckerbug.github.io/index.html
+## Page [here](https://Truckerbug.github.io/index.html)
