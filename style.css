@@ -1,16 +1,32 @@
+/* note- if adding a style, style MUST contain this:
+width:100%;
+    min-width:1000px;
+    height:auto; */
 .dark-background {
   background-color: black;
+  width:100%;
+  min-width:1000px;
+  height:auto;
 }
 .header {
+  width:100%;
+  min-width:1000px;
+  height:auto;
   text-align: center;
   font-family: Arial;
   font-size: 80px;
   color: white;
 }
 .center-screen {
+  width:100%;
+  min-width:1000px;
+  height:auto;
   text-align: center;
 }
 .fade-in-text {
+  width:100%;
+  min-width:1000px;
+  height:auto;
   text-align: center;
   font-family: Arial;
   font-size: 10px;
