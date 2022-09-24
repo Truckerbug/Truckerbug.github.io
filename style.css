@@ -27,7 +27,7 @@ width:100%;
   margin: 0 auto;
 }
 .fade-in-text {
-  color: white;
+  color: rgb(62, 146, 180);
   margin: 0 auto;
   text-align: center;
   font-family: Arial;
@@ -62,4 +62,176 @@ width:100%;
 @-ms-keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.fade-out {
+  animation: fadeOut ease 8s;
+  -webkit-animation: fadeOut ease 8s;
+  -moz-animation: fadeOut ease 8s;
+  -o-animation: fadeOut ease 8s;
+  -ms-animation: fadeOut ease 8s;
+  font-size: 30px;
+  text-align: center;
+  color: rgb(62, 146, 180);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
+}
+
+.hide {
+  display: none;
+}
+
+.fade-out-2 { 
+  animation: fadeOut2 ease 8s;
+  -webkit-animation: fadeOut2 ease 8s;
+  -moz-animation: fadeOut2 ease 8s;
+  -o-animation: fadeOut2 ease 8s;
+  -ms-animation: fadeOut2 ease 8s;
+  font-size: 30px;
+  text-align: center;
+  color: rgb(62, 146, 180);
+}
+
+@keyframes fadeOut2 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut2 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut2 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut2 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut2 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
+}
+
+.fade-out-3 { 
+  animation: fadeOut3 ease 8s;
+  -webkit-animation: fadeOut3 ease 8s;
+  -moz-animation: fadeOut3 ease 8s;
+  -o-animation: fadeOut3 ease 8s;
+  -ms-animation: fadeOut3 ease 8s;
+  font-size: 30px;
+  text-align: center;
+  color: rgb(62, 146, 180);
+}
+
+@keyframes fadeOut3 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut3 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut3 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut3 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut3 {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}
 }
