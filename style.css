@@ -2,6 +2,9 @@
 width:100%;
     min-width:1000px;
     height:auto; */
+.image {
+  font-size: 10px;
+}
 .dark-background {
   background-color: black;
   overflow: hidden;
