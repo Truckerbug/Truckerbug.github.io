@@ -4,7 +4,7 @@
 .popular {
     width: 35%;
     height: auto;
-    float: left;
+    float: center;
     padding: 15px;
     border: 1px solid dodgerblue;
     text-align: left;
@@ -12,15 +12,16 @@
     font-size: 150%;
 }
 .title {
+    float: center;
     text-align: center;
     justify-content: center;
     justify-items: center;
     border: 1px solid teal;
     font-family: Arial;
     width: 30%;
+    height: 90%;
     font-size: 150%;
     color: dodgerblue;
-    height: 90px;
 }
 
 .foodTitle {
