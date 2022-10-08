@@ -4,6 +4,9 @@ width:100%;
     height:auto; */
 .image {
   font-size: 10px;
+  height: 150px;
+  width: 225px;
+  position: center;
 }
 .dark-background {
   background-color: black;
@@ -14,7 +17,6 @@ width:100%;
 }
 .header {
   overflow: hidden;
-  text-align: center;
   font-family: Arial;
   font-size: 20px;
   color: white;

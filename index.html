@@ -13,14 +13,21 @@
       }
       setInterval('autoRefresh()', 15000);
   </script>
+  <script>
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      location.href="truckerbug.github.io/mobile/index.html";
+  } else{
+  location.href="truckerbug.github.io/computer/index.html";
+}
+  </script>
 </head>
 <body class="dark-background">
   <div class="center-screen">
 <h1 class='fade-out', id="header1">truckerbug</h1>
 <h6>
-<a href="https://bit.ly/truckerbug11", class="fade-out", id="image1"><img src="youtube-logo.jpg"></a>
-<a href="https://twitch.tv/truckerbug", class="hide fade-out-2", id="image2"><img src="twitch.jpg"></a>
-<a href="https://github.com/Truckerbug", class="hide fade-out-3", id="image3"><img src="github.png"></a>
+<a href="https://bit.ly/truckerbug11", class="fade-out image", id="image1"><img src="images/youtube-logo.jpg"></a>
+<a href="https://twitch.tv/truckerbug", class="hide fade-out-2", id="image2"><img src="images/twitch.jpg"></a>
+<a href="https://github.com/Truckerbug", class="hide fade-out-3", id="image3"><img src="images/github.png"></a>
 </h6>
 </div>
 </body>

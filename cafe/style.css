@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.popular {
+    width: 35%;
+    height: auto;
+    float: left;
+    padding: 15px;
+    border: 1px solid dodgerblue;
+    text-align: left;
+    font-family: Arial;
+    font-size: 150%;
+}
+.title {
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    border: 1px solid teal;
+    font-family: Arial;
+    width: 30%;
+    font-size: 150%;
+    color: dodgerblue;
+    height: 90px;
+}
+
+.foodTitle {
+    text-align: left;
+    color: #1d6d86;
+    font-size: 175%;
+}
