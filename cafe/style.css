@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .popular {
-    width: 55%;
+    width: 80%;
     height: auto;
     float: center;
     padding: 15px;
@@ -18,7 +18,7 @@
     justify-items: center;
     border: 1px solid teal;
     font-family: Arial;
-    width: 75%;
+    width: 85%;
     height: 90%;
     font-size: 150%;
     color: dodgerblue;
