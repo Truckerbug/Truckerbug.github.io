@@ -30,3 +30,15 @@
     font-size: 175%;
     float: left;
 }
+
+.breakfast {
+    color: #1d6d86;
+}
+
+.lunch {
+    color: green
+}
+
+.dinner {
+    color: cadetblue
+}
