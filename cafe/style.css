@@ -1,14 +1,14 @@
 * {
     box-sizing: border-box;
 }
-.popular {
+.breakfast {
     width: 80%;
     height: auto;
     float: center;
     padding: 15px;
     border: 1px solid dodgerblue;
     text-align: left;
-    font-family: Arial;
+    font-family: sans-serif;
     font-size: 150%;
 }
 .title {
@@ -17,7 +17,7 @@
     justify-content: center;
     justify-items: center;
     border: 1px solid teal;
-    font-family: Arial;
+    font-family: sans-serif;
     width: 85%;
     height: 90%;
     font-size: 150%;
@@ -31,14 +31,21 @@
     float: left;
 }
 
-.breakfast {
-    color: #1d6d86;
-}
-
 .lunch {
     color: green
 }
 
 .dinner {
     color: cadetblue
+}
+
+.special {
+    width: 75%;
+    height: auto;
+    float: center;
+    padding: 15px;
+    border: 1px solid steelblue;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 150%;
 }
