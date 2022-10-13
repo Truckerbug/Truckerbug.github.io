@@ -1,8 +1,10 @@
 * {
     box-sizing: border-box;
+    background-color: beige;
     /* background-color: beige; */
 }
 .breakfast {
+    background-color: white;
     width: 80%;
     height: auto;
     float: center;
@@ -24,6 +26,7 @@
     height: 90%;
     font-size: 150%;
     color: dodgerblue;
+    background-color: white;
 }
 
 .foodTitle {
@@ -49,6 +52,7 @@
     font-family: sans-serif;
     font-size: 150%;
     color: #C8A2C8;
+    background-color: white;
 }
 
 .special {
@@ -61,4 +65,8 @@
     font-family: sans-serif;
     font-size: 150%;
     color: #C8A2C8;
+    background-color: white;
+}
+.whitebackground {
+    background-color: transparent;
 }
