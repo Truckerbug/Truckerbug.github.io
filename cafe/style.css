@@ -24,9 +24,9 @@
     font-family: sans-serif;
     width: 85%;
     height: 90%;
-    font-size: 150%;
     color: dodgerblue;
     background-color: white;
+
 }
 
 .foodTitle {
@@ -69,4 +69,8 @@
 }
 .whitebackground {
     background-color: transparent;
+}
+img {
+    width: 30;
+    height: auto;
 }
