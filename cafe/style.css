@@ -87,3 +87,46 @@ img {
     color: #27a0dd;
     background-color: white;
 }
+
+.fade-in-text {
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1; }
+}
+
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.deserts {
+    width: 70%;
+    height: auto;
+    float: center;
+    padding: 15px;
+    border: 1px solid #d67225;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 150%;
+    color: #d67225;
+    background-color: white;
+}
