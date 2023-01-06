@@ -60,3 +60,16 @@
   width: 200px;
   height: 150px;
 }
+
+.links {
+  align-items: center;
+  justify-content: center;
+  justify-self: auto;
+}
+
+.title {
+  color: rgb(15, 15, 255);
+  align-self: center;
+  align-content: center;
+  justify-items: center;
+}

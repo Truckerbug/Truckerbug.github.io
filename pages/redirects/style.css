@@ -1,0 +1,14 @@
+ul {
+    list-style-type: none;
+}
+
+.listitem {
+    width: max-content;
+    text-decoration: none;
+    color: black;
+}
+
+li:hover {
+    background-color: #f5f5f5;
+    width: max-content;
+}
