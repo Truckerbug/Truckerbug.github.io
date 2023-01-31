@@ -41,35 +41,55 @@
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
 .top {
   background-color: #04AA6D;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
 }
 .bg {
   background-color: white;
 }
 
+.links {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 5vh;
+}
+
 .youtube {
-  width: 175px;
-  height: 150px;
+  width: 128px;
+  height: 128px;
 }
 
 .twitch {
-  width: 150px;
-  height: 150px;
+  width: 128px;
+  height: 128px;
 }
 
 .github {
-  width: 200px;
-  height: 150px;
+  width: 128px;
+  height: 128px;
 }
 
-.links {
-  align-items: center;
-  justify-content: center;
-  justify-self: auto;
+.title-div {
+  color: rgb(15, 15, 255);
+  align-content: right;
+  justify-items: right;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
-
 .title {
   color: rgb(15, 15, 255);
-  align-self: center;
-  align-content: center;
-  justify-items: center;
+  align-self: right;
+  /* color: white; */
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
