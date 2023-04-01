@@ -1,5 +1,5 @@
 $("#typed").typed({
-  		strings: ["developer", "YouTuber", "Rocket League Player", "editor"],
+  		strings: ["developer", "YouTuber", "Rocket League Player", "editor", "nature lover", "Rubik's cuber"],
   		typeSpeed: 100,
   		startDelay: 0,
   		backSpeed: 60,
