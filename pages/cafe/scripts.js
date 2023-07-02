@@ -25,5 +25,4 @@ function favorite() {
     localStorage.setItem("favorited", "food", "true");
   }
 console.log("Welcome to the JS console!");
-console.log("Website by Spencer Schiminsky")
 const e = React.createElement;
