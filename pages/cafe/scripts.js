@@ -25,4 +25,4 @@ function favorite() {
     localStorage.setItem("favorited", "food", "true");
   }
 console.log("Welcome to the JS console!");
-const e = React.createElement;
+/* const e = React.createElement; */
