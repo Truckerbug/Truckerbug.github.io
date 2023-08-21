@@ -3,6 +3,18 @@
     background-color: beige;
     /* background-color: beige; */
 }
+.snacks {
+    background-color: white;
+    width: 80%;
+    height: auto;
+    float: center;
+    padding: 15px;
+    border: 1px solid dodgerblue;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 150%;
+    color: #b7ece4;
+}
 .breakfast {
     background-color: white;
     width: 80%;
@@ -13,7 +25,7 @@
     text-align: left;
     font-family: sans-serif;
     font-size: 150%;
-    color: #C8A2C8;
+    color: #3dfe00;
 }
 .title {
     float: center;
