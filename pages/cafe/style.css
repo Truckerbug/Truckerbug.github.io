@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
     background-color: beige;
     /* background-color: beige; */
@@ -15,8 +15,8 @@
     font-size: 150%;
     color: #b7ece4;
 }
-.breakfast {
-    background-color: white;
+div.breakfast {
+    background-color: rgba(255, 255, 255, 0.8);
     width: 80%;
     height: auto;
     float: center;
@@ -27,7 +27,17 @@
     font-size: 150%;
     color: #3dfe00;
 }
-.title {
+
+li {
+    background-color: transparent; /* This fixed everything! */
+}
+
+li {
+    width: max-content;
+    max-width: 90%;
+}
+
+*.title {
     float: center;
     text-align: center;
     justify-content: center;
@@ -41,20 +51,21 @@
 
 }
 
-.foodTitle {
+*.foodTitle {
     text-align: left;
     color: #1d6d86;
     font-size: 175%;
     float: left;
 }
 
-.menuTitle {
+*.menuTitle {
    /* text-align: left; */
     color: #1d6d86;
     /* float: left; */
 }
 
-.lunch {
+div.lunch {
+    background-color: rgba(255, 255, 255, 0.8);
     width: 80%;
     height: auto;
     float: center;
@@ -64,7 +75,22 @@
     font-family: sans-serif;
     font-size: 150%;
     color: #C8A2C8;
-    background-color: white;
+}
+/* div.breakfast {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 80%;
+    height: auto;
+    float: center;
+    padding: 15px;
+    border: 1px solid dodgerblue;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 150%;
+    color: #3dfe00;
+} */
+
+h3 {
+    background-color: transparent;
 }
 
 .special {
@@ -79,7 +105,7 @@
     color: #C8A2C8;
     background-color: white;
 }
-.whitebackground {
+*.whitebackground {
     background-color: transparent;
 }
 img {
