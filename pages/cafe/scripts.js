@@ -33,7 +33,7 @@ function update_content(){
     var newDoc = document.open("text/html", "replace");
     newDoc.write(page_html);
     newDoc.close();
-
+``
     });   
 
 }
