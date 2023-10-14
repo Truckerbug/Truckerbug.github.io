@@ -1,8 +1,7 @@
 <?php
 if(isset($_POST['name']) && isset($_POST['email'])) {
-    $data = $_POST['name'] . '-' . $_POST['email'] . "\n";
-    $filename = date('YmdHis').".txt";
-    $ret = file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
+    $data = $_POST['field1'] . '-' . $_POST['field2'] . "\r\n";
+    $ret = file_put_contents('/tmp/mydata.txt', $data, FILE_APPEND | LOCK_EX);
     if($ret === false) {
         die('There was an error writing this file');
     }
@@ -13,4 +12,3 @@ if(isset($_POST['name']) && isset($_POST['email'])) {
 else {
    die('no post data to process');
 }
-?>
