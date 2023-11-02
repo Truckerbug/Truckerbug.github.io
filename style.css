@@ -1,239 +1,63 @@
-/* note- if adding a style, style MUST contain this:
-width:100%;
-    min-width:1000px;
-    height:auto; */
-.image {
-  font-size: 10px;
-  height: 150px;
-  width: 225px;
-  position: center;
-}
-.dark-background {
-  background-color: black;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  margin: 0 auto;
-}
-.header {
-  overflow: hidden;
-  font-family: Arial;
-  font-size: 20px;
-  color: white;
-  margin: 0 auto;
-}
-.center-screen {
-  overflow: hidden;
-  height: auto;
-  text-align: center;
-  margin: 0 auto;
-}
-.fade-in-text {
-  color: rgb(62, 146, 180);
-  margin: 0 auto;
-  text-align: center;
-  font-family: Arial;
-  font-size: 30px;
-  animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+    background-color: #808080;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
 }
 
-@-moz-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+a {
+    text-decoration: none;
+    color: #2d527b;
 }
 
-@-webkit-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 3s;
 }
 
-@-o-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
 
-@-ms-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
 }
 
-.fade-out {
-  animation: fadeOut ease 8s;
-  -webkit-animation: fadeOut ease 8s;
-  -moz-animation: fadeOut ease 8s;
-  -o-animation: fadeOut ease 8s;
-  -ms-animation: fadeOut ease 8s;
-  font-size: 30px;
-  text-align: center;
-  color: rgb(62, 146, 180);
+.social:nth-child(1) {
+    transition-delay: 200ms;
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
+.social:nth-child(2) {
+    transition-delay: 400ms;
 }
 
-@-moz-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
+.social:nth-child(3) {
+    transition-delay: 600ms;
 }
 
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
+.project:nth-child(1) {
+    transition-delay: 200ms;
 }
 
-@-o-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
+.project:nth-child(2) {
+    transition-delay: 400ms;
 }
 
-@-ms-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-}
-}
-
-.hide {
-  display: none;
-}
-
-.fade-out-2 { 
-  animation: fadeOut2 ease 8s;
-  -webkit-animation: fadeOut2 ease 8s;
-  -moz-animation: fadeOut2 ease 8s;
-  -o-animation: fadeOut2 ease 8s;
-  -ms-animation: fadeOut2 ease 8s;
-  font-size: 30px;
-  text-align: center;
-  color: rgb(62, 146, 180);
-}
-
-@keyframes fadeOut2 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-moz-keyframes fadeOut2 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-webkit-keyframes fadeOut2 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-o-keyframes fadeOut2 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-ms-keyframes fadeOut2 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-}
-}
-
-.fade-out-3 { 
-  animation: fadeOut3 ease 8s;
-  -webkit-animation: fadeOut3 ease 8s;
-  -moz-animation: fadeOut3 ease 8s;
-  -o-animation: fadeOut3 ease 8s;
-  -ms-animation: fadeOut3 ease 8s;
-  font-size: 30px;
-  text-align: center;
-  color: rgb(62, 146, 180);
-}
-
-@keyframes fadeOut3 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-moz-keyframes fadeOut3 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-webkit-keyframes fadeOut3 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-o-keyframes fadeOut3 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-ms-keyframes fadeOut3 {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-}
+.project:nth-child(3) {
+    transition-delay: 600ms;
 }
