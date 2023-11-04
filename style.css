@@ -65,7 +65,7 @@ a {
 .languages {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 3%;
 }
 
 .language:nth-child(1) {
