@@ -1,72 +1,44 @@
-let start = new Date().getTime();
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
 
-const originPosition = { x: 0, y: 0 };
+const ctx = canvas.getContext("2d");
 
-const last = {
-  starTimestamp: start,
-  starPosition: originPosition,
-  mousePosition: originPosition
-};
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-const config = {
-  // ... other configuration options (unchanged)
-};
+canvas.width = width;
+canvas.height = height;
 
-let count = 0;
+let points = [];
 
-const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
-      selectRandom = items => items[rand(0, items.length - 1)];
+window.addEventListener("mousemove", (event) => {
+  const x = event.clientX;
+  const y = event.clientY;
 
-const withUnit = (value, unit) => `${value}${unit}`,
-      px = value => withUnit(value, "px"),
-      ms = value => withUnit(value, "ms");
+  // Add a new point to the trail
+  points.push({ x, y });
 
-const calcDistance = (a, b) => {
-  const diffX = b.x - a.x,
-        diffY = b.y - a.y;
+  // Limit the number of points for performance
+  points = points.slice(-20);
 
-  return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
-};
+  ctx.clearRect(0, 0, width, height);
 
-const calcElapsedTime = (start, end) => end - start;
+  // Draw the trail
+  for (let i = 0; i < points.length - 1; i++) {
+    const current = points[i];
+    const next = points[i + 1];
 
-const appendElement = element => document.body.appendChild(element),
-      removeElement = (element, delay) => setTimeout(() => document.body.removeChild(element), delay);
-
-const createStar = position => {
-  const star = document.createElement("span");
-
-  star.className = "star"; // Remove "fa-solid fa-sparkle" class for emoji
-  star.textContent = "⭐"; // Set the content to the star emoji
-
-  star.style.left = px(position.x);
-  star.style.top = px(position.y);
-  star.style.fontSize = selectRandom(config.sizes);
-  star.style.color = `rgb(${selectRandom(config.colors)})`;
-  star.style.textShadow = `0px 0px 1.5rem rgb(${selectRandom(config.colors)} / 0.5)`;
-  star.style.animationName = config.animations[count++ % 3];
-  star.style.animationDuration = ms(config.starAnimationDuration);
-
-  appendElement(star);
-
-  removeElement(star, config.starAnimationDuration);
-};
-
-const handleOnMove = e => {
-  const mousePosition = { x: e.clientX, y: e.clientY };
-
-  // ... existing code for trail creation (unchanged)
-
-  if (calcElapsedTime(last.starTimestamp, new Date().getTime()) > config.minimumTimeBetweenStars) {
-    createStar(mousePosition);
-    last.starTimestamp = new Date().getTime();
+    ctx.beginPath();
+    ctx.moveTo(current.x, current.y);
+    ctx.lineTo(next.x, next.y);
+    ctx.strokeStyle = "white"; // Trail color
+    ctx.lineWidth = 2; // Trail thickness
+    ctx.stroke();
   }
 
-  last.mousePosition = mousePosition;
-};
-
-window.onmousemove = e => handleOnMove(e);
-
-window.ontouchmove = e => handleOnMove(e.touches[0]);
-
-document.body.onmouseleave = () => last.mousePosition = originPosition;
+  // Draw the star
+  ctx.beginPath();
+  ctx.arc(x, y, 5, 0, Math.PI * 2); // Star size and shape
+  ctx.fillStyle = "yellow"; // Star color
+  ctx.fill();
+});
