@@ -11,34 +11,63 @@ canvas.height = height;
 
 let points = [];
 
+const fallSpeed = 5; // Adjust for desired falling speed
+const minimumSpacing = 50; // Adjust for desired spacing between stars
+const rotationSpeed = .015; // Adjust for base rotation speed
+
 window.addEventListener("mousemove", (event) => {
   const x = event.clientX;
   const y = event.clientY;
 
-  // Add a new point to the trail
-  points.push({ x, y });
-
-  // Limit the number of points for performance
-  points = points.slice(-20);
-
-  ctx.clearRect(0, 0, width, height);
-
-  // Draw the trail
-  for (let i = 0; i < points.length - 1; i++) {
-    const current = points[i];
-    const next = points[i + 1];
-
-    ctx.beginPath();
-    ctx.moveTo(current.x, current.y);
-    ctx.lineTo(next.x, next.y);
-    ctx.strokeStyle = "white"; // Trail color
-    ctx.lineWidth = 2; // Trail thickness
-    ctx.stroke();
+  // Check if there are any existing points
+  if (!points.length) {
+    points.push({ x, y, timestamp: Date.now(), rotation: Math.random() * Math.PI * 2 }); // Add first star with random rotation
+    return;
   }
 
-  // Draw the star
-  ctx.beginPath();
-  ctx.arc(x, y, 5, 0, Math.PI * 2); // Star size and shape
-  ctx.fillStyle = "yellow"; // Star color
-  ctx.fill();
+  // Calculate distance between the current and last point
+  const lastPoint = points[points.length - 1];
+  const distance = Math.sqrt(Math.pow(x - lastPoint.x, 2) + Math.pow(y - lastPoint.y, 2));
+
+  // Add a new star only if the distance is greater than the minimum spacing
+  if (distance > minimumSpacing) {
+    points.push({ x, y, timestamp: Date.now(), rotation: Math.random() * Math.PI * 2 }); // Add new star with random rotation
+  }
 });
+
+window.requestAnimationFrame(draw);
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  // Loop through points and update their positions
+  for (let i = 0; i < points.length; i++) {
+    const point = points[i];
+    const elapsedTime = (Date.now() - point.timestamp) / 1000; // Time in seconds
+    const opacity = 1 - elapsedTime; // Fading factor based on time
+
+    if (opacity > 0) { // Only draw visible stars
+      point.y += fallSpeed * elapsedTime; // Update y position for falling
+
+      // Update rotation based on elapsed time and adjusted rotation speed
+      point.rotation += (rotationSpeed + (1 - elapsedTime) * rotationSpeed) * elapsedTime; // Gradually decreasing rotation speed
+
+      // Draw the star emoji with adjusted properties
+      ctx.save();
+      ctx.translate(point.x, point.y);
+      ctx.rotate(point.rotation); // Apply accumulated rotation
+      ctx.scale(1, 1); // No scaling in this version
+      ctx.font = `20px sans-serif`; // Adjust font size as desired
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`; // White with adjustable opacity
+      ctx.fillText("⭐", 0, 0);
+      ctx.restore();
+    }
+  }
+
+  // Remove old points after 2 seconds
+  points = points.filter(point => (Date.now() - point.timestamp) < 2000);
+
+  window.requestAnimationFrame(draw);
+}
