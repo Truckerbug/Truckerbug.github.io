@@ -1,3 +1,21 @@
+// Set initial cursor style to a dot
+document.body.style.cursor = "none"; // This hides the default cursor
+
+// Create a custom cursor element
+const cursor = document.createElement("div");
+cursor.id = "custom-cursor";
+cursor.style.position = "absolute";
+cursor.style.top = "0";
+cursor.style.left = "0";
+cursor.style.width = "5px";
+cursor.style.height = "5px";
+cursor.style.borderRadius = "50%";
+cursor.style.backgroundColor = "white";
+cursor.style.pointerEvents = "none"; // Prevent the cursor from interacting with elements
+
+document.body.appendChild(cursor);
+
+
 const canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
 
@@ -16,6 +34,9 @@ const minimumSpacing = 50; // Adjust for desired spacing between stars
 const rotationSpeed = .015; // Adjust for base rotation speed
 
 window.addEventListener("mousemove", (event) => {
+  cursor.style.top = event.clientY + "px";
+  cursor.style.left = event.clientX + "px";
+
   const x = event.clientX;
   const y = event.clientY;
 
@@ -34,6 +55,20 @@ window.addEventListener("mousemove", (event) => {
     points.push({ x, y, timestamp: Date.now(), rotation: Math.random() * Math.PI * 2 }); // Add new star with random rotation
   }
 });
+
+window.addEventListener("click", (event) => {
+  // Add a star on every click
+  points.push({
+    x: event.clientX,
+    y: event.clientY,
+    timestamp: Date.now(),
+    rotation: Math.random() * Math.PI * 2, // Random rotation
+  });
+});
+
+const maxStars = 20; // Adjust the maximum number of stars
+let currentStarCount = 0;
+  
 
 window.requestAnimationFrame(draw);
 
