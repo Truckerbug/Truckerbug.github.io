@@ -1,6 +1,18 @@
 // Set initial cursor style to a dot
 document.body.style.cursor = "none"; // This hides the default cursor
 
+// Detect if user is on a mobile device or on a desktop
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Example usage
+if (isMobileDevice()) {
+  console.log("User is on a mobile device. We should set the boxes to be the full width and stack vertically");
+} else {
+  console.log("User is on a computer. We should set the boxes to be in one row");
+}
+
 // Create a custom cursor element
 const cursor = document.createElement("div");
 cursor.id = "custom-cursor";
