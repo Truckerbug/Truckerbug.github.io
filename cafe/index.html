@@ -1,117 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="scripts.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link rel="icon" href="../../images/cafe-logo.jpg" type="image/x-icon">
-    <script src="like_button.js"></script>
-    <title>Lemolo Cafè</title>
-    <!-- <meta http-equiv="Refresh" content="0; url='https://truckerbug.github.io/index.html'" /> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lemolo Café — Family &amp; Friends Only</title>
+<meta name="description" content="Lemolo Café — a little café run by the kids. Open daily 8:30am–9:00pm. Family and friends only!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #26362A;
+    --bg-dark: #1E2B23;
+    --paper: #FBF3DE;
+    --paper-shadow: #E7DBB8;
+    --chalk: #F6F4EC;
+    --chalk-dim: #C9D3C6;
+    --yellow: #F4C542;
+    --red: #D6553F;
+    --leaf: #7FA65C;
+    --ink: #2B2B24;
+    --string: #A9B79E;
+    --radius: 10px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 22px 22px;
+    color: var(--chalk);
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.5;
+  }
+
+  h1,h2,h3, .chalk-font{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- Top contact bar ---------- */
+  .top-bar{
+    background: var(--bg-dark);
+    color: var(--chalk);
+    text-align: center;
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 0.7rem;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+  }
+
+  .top-bar a{
+    color: var(--yellow);
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+
+  .top-bar a:hover, .top-bar a:focus-visible{ text-decoration: underline; }
+
+  .top-bar .dot{ color: var(--chalk-dim); }
+
+  .top-bar .hours{ color: var(--chalk-dim); }
+
+  /* ---------- Header / Hero ---------- */
+  header.hero{
+    position: relative;
+    padding: 3.5rem 1.5rem 3rem;
+    text-align: center;
+    border-bottom: 6px dashed var(--string);
+    overflow: hidden;
+  }
+
+  .badge{
+    display:inline-block;
+    background: var(--red);
+    color: var(--chalk);
+    font-family:'Kalam', cursive;
+    font-size: 0.95rem;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    transform: rotate(-3deg);
+    box-shadow: 0 3px 0 rgba(0,0,0,0.25);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    margin: 0.2rem 0 0.4rem;
+    color: var(--yellow);
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    letter-spacing: 0.5px;
+  }
+
+  .hero p.tagline{
+    font-size: clamp(1rem, 2.4vw, 1.25rem);
+    color: var(--chalk-dim);
+    max-width: 34rem;
+    margin: 0 auto 2rem;
+  }
+
+  /* Hanging hours sign */
+  .sign-wrap{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    transform-origin: top center;
+    animation: settle 2.4s ease-in-out infinite;
+  }
+
+  .sign-strings{
+    display:flex;
+    gap: 3.2rem;
+  }
+  .sign-strings span{
+    width: 2px;
+    height: 26px;
+    background: var(--string);
+  }
+
+  .sign-board{
+    margin-top: -2px;
+    background: #6B4A2E;
+    border: 3px solid #4A3120;
+    border-radius: 6px;
+    padding: 0.7rem 1.6rem;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+    font-family: 'Kalam', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #B9E6A1;
+    text-align: center;
+  }
+
+  .sign-board .days{
+    display:block;
+    font-size: 0.85rem;
+    color: var(--chalk-dim);
+    letter-spacing: 0.5px;
+    margin-top: 0.15rem;
+  }
+
+  @keyframes settle{
+    0%, 100%{ transform: rotate(-1.5deg); }
+    50%{ transform: rotate(1.5deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sign-wrap{ animation: none; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ---------- Nav ---------- */
+  nav.menu-nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-dark);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 0.2rem;
+    padding: 0.7rem 1rem;
+  }
+
+  nav.menu-nav a{
+    text-decoration: none;
+    color: var(--chalk-dim);
+    font-family: 'Kalam', cursive;
+    font-size: 1rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  nav.menu-nav a:hover, nav.menu-nav a:focus-visible{
+    background: var(--yellow);
+    color: var(--ink);
+    outline: none;
+  }
+
+  /* ---------- Sections ---------- */
+  main{
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.2rem;
+  }
+
+  section.menu-section{
+    padding: 3rem 0 2rem;
+  }
+
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 3px solid var(--yellow);
+    padding-bottom: 0.5rem;
+  }
+
+  .section-head .icon{ font-size: 1.8rem; }
+
+  .section-head h2{
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin: 0;
+    color: var(--chalk);
+  }
+
+  .section-note{
+    color: var(--chalk-dim);
+    font-size: 0.92rem;
+    margin: -0.8rem 0 1.6rem;
+    font-style: italic;
+  }
+
+  .card-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .card{
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem 1rem;
+    box-shadow: 0 5px 0 var(--paper-shadow), 0 8px 14px rgba(0,0,0,0.25);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
+    opacity: 0;
+    animation: riseIn 0.5s ease forwards;
+  }
+
+  .card:nth-child(3n){ --tilt: 0.6deg; }
+  .card:nth-child(3n+1){ --tilt: -0.7deg; }
+  .card:nth-child(3n+2){ --tilt: 0.3deg; }
+
+  .card:hover{
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 8px 0 var(--paper-shadow), 0 14px 20px rgba(0,0,0,0.3);
+  }
+
+  @keyframes riseIn{
+    from{ opacity: 0; transform: translateY(10px) rotate(var(--tilt,0deg)); }
+    to{ opacity: 1; transform: translateY(0) rotate(var(--tilt,0deg)); }
+  }
+
+  .card .pin{
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  }
+
+  .card-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .card h3{
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+
+  .price{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    background: var(--leaf);
+    color: #16240F;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .price.alt{ background: var(--yellow); }
+
+  .price-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .price-row .price-chip{
+    font-size: 0.85rem;
+    background: #fff;
+    border: 1.5px solid var(--leaf);
+    color: var(--ink);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .tags{
+    margin-top: 0.6rem;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tags span{
+    font-size: 0.78rem;
+    background: rgba(43,43,36,0.07);
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+  }
+
+  /* ---------- Sandwich builder ---------- */
+  .builder{
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.5rem 1.7rem;
+    box-shadow: 0 6px 0 var(--paper-shadow), 0 10px 16px rgba(0,0,0,0.25);
+  }
+
+  .builder h3{
+    margin-top:0;
+    font-size: 1.3rem;
+  }
+
+  .fillings{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+    gap: 0.5rem 0.8rem;
+    margin: 1rem 0 1.3rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .fillings label{
+    display:flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border: 1.5px solid var(--paper-shadow);
+    border-radius: 8px;
+    padding: 0.45rem 0.6rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .fillings label:has(input:checked){
+    border-color: var(--leaf);
+    background: #EEF6E7;
+  }
+
+  .fillings input{ accent-color: var(--leaf); width: 16px; height: 16px; }
+
+  .order-summary{
+    background: var(--bg-dark);
+    color: var(--chalk);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-family: 'Kalam', cursive;
+    font-size: 1.05rem;
+    min-height: 1.6rem;
+  }
+
+  .order-summary .empty{ color: var(--chalk-dim); font-family: 'Nunito', sans-serif; font-style: italic; font-size: 0.9rem; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    text-align: center;
+    padding: 3rem 1.5rem 3.5rem;
+    color: var(--chalk-dim);
+    font-size: 0.9rem;
+  }
+
+  footer .signoff{
+    font-family: 'Kalam', cursive;
+    color: var(--yellow);
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .skip-link{
+    position:absolute;
+    left:-999px;
+    top:auto;
+  }
+  .skip-link:focus{
+    left: 1rem;
+    top: 1rem;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 100;
+  }
+
+  a:focus-visible, label:focus-within, input:focus-visible{
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+  }
+</style>
 </head>
-<body class="fade-in-text">
-    <div>
-        <div class="title whitebackground">
-            <h1>Lemolo Cafe <br>
-            </h1>
-            <h2>Open 8:30 AM - 9:00 PM Close</h2>
-            <h3>Does not serve dinner</h3>
-            <h5>Call us at 360-779-3040</h5>
-            <!-- <img src="../images/cafe-logo.jpg" alt="cafe-logo" class="img"/> -->
+<body>
+
+<a class="skip-link" href="#breakfast">Skip to menu</a>
+
+<div class="top-bar">
+  <a href="tel:3607793040">📞 360-779-3040</a>
+  <span class="dot">•</span>
+  <span class="hours">Open daily 8:30am – 9:00pm</span>
+</div>
+
+<header class="hero">
+  <span class="badge">Family &amp; Friends Only — no menu subs, please 😉</span>
+  <h1>Lemolo Café</h1>
+  <p class="tagline">Straight out of the kitchen, served off the porch. Everything on the menu is made fresh, priced fair, and cooked up by the kids.</p>
+
+  <div class="sign-wrap">
+    <div class="sign-strings"><span></span><span></span></div>
+    <div class="sign-board">
+      8:30 AM – 9:00 PM
+      <span class="days">Open Every Day</span>
+    </div>
+  </div>
+</header>
+
+<nav class="menu-nav" aria-label="Menu sections">
+  <a href="#breakfast">🥞 Breakfast</a>
+  <a href="#lunch">🥪 Lunch</a>
+  <a href="#build">🧀 Build-a-Sandwich</a>
+  <a href="#dessert">🍨 Dessert</a>
+  <a href="#drinks">🥤 Beverages</a>
+</nav>
+
+<main>
+
+  <section class="menu-section" id="breakfast">
+    <div class="section-head"><span class="icon">🥞</span><h2>Breakfast</h2></div>
+    <div class="card-grid">
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Pancakes</h3><span class="price">$2.00</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Granola Parfait</h3><span class="price">$2.00</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Eggs w/ Toast &amp; Bacon</h3><span class="price">$2.00</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Oatmeal</h3><span class="price">$1.00</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Omelet</h3><span class="price">$1.50</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Breakfast Burrito</h3><span class="price">$2.00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="lunch">
+    <div class="section-head"><span class="icon">🥪</span><h2>Lunch</h2></div>
+    <div class="card-grid">
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Nachos</h3></div>
+        <div class="price-row">
+          <span class="price-chip">Small — $1.00</span>
+          <span class="price-chip">Large — $2.00</span>
         </div>
-        <h2 class="menuTitle">Food, made fresh and hot (or cold!) to your order.</h2>
-        <br>
-        <div id="fooditems">
-        <br>
-        <div class="special">
-            <h3 class="whitebackground">All You Can Eat $12.00</h3>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Chips &amp; Salsa</h3><span class="price">$1.00</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Quesadilla</h3></div>
+        <div class="price-row">
+          <span class="price-chip">Half — $1.00</span>
+          <span class="price-chip">Full — $2.00</span>
         </div>
-        <h3 class="foodTitle">Breakfast</h3>
-            <div id="linebreaks">
-            <br> <br> <br> <br>
-            </div>
-            <div class="breakfast">
-                <ul class="whitebackground">
-                    <li>Pancakes $1.50</li>
-                    <li>French Toast $1.50</li>
-                    <li>Yogurt Parfait $1.50</li>
-                    <li>Cereal $0.50</li>
-                    <li>Eggs & Toast $1.00</li>
-                    <li>Toast w/ Jam / Cream Cheese $1.00</li>
-                    <li>Oatmeal $0.50</li>
-                    <li>Breakfast Burrito $2.00</li>
-                    <li>Breakfast Sandwhich $2.00</li>
-                    <li>Huevos Rancheros $2.00</li>
-                    <li>Scrambled Eggs $1.00</li>
-                </ul>
-            </div>
-            <br>
-            <h3 class="foodTitle">Lunch</h3>
-            <div id="linebreaks2">
-                <br><br><br><br>
-            </div>
-            <div class="lunch">
-                <ul class="whitebackground">
-                    <li>Nachos</li>
-                    <li><h5>Small $1.00, Large $2.00</h5></li>
-                    <li>Quesadilla $2.00</li>
-                    <li><h3>Sandwiches</h3></li>
-                    <li>Grilled Cheese $1.00</li>
-                    <li>PB & J $1.00</li>
-                    <li>Ham and Cheese $1.00</li>
-                    <li>Turkey $1.00, 2 addons optional</li>
-                    <li><h5>Other toppings include but not limited to: pickles, lettuce, cheese, sriracha, mayonnaise</h3></li>
-                    <li>Anything, Everything $3.50</li>
-                    <li><h5>Just tell us what you want, and we'll make it.</h5></li>
-                    <li><h3>Current Items</h3></li>
-                    <li>Chicken Wing $1.50</li>
-                    <li>Meatball Sandwich $1.50</li>
-                    <li>Chicken Parm $1.50</li>
-                    <li>Slice of pizza $1.50</li>
-                </ul>
-            </div>
-            </div>
-            <br>
-            <h3 class="foodTitle">Snacks</h3>
-            <br><br><br><br>
-            <div id="snacks" class="snacks">
-                <ul class="whitebackground">
-                    <li>Chips and Salsa $1.00</li>
-                    <li><h5>Refills $0.50</h5></li>
-                    <li>Chips $1.00</li>
-                    <li>Toast $0.50</li>
-                    <li>Dry Cereal $0.50</li>
-                    <li>Crackers $0.50</li>
-                </ul>
-            </div>
-            <br>
-            <h3 class="foodTitle">Beverages</h3>
-            <br><br><br><br>
-            <div id="beverages" class="beverages">
-                <ul class="whitebackground">
-                    <li>Water $0.00</li>
-                    <li>Lemonade $0.50</li>
-                    <li>Coffee $1.00</li>
-                    <li>Juice $1.00</li>
-                    <li><h5>Refills are free!</h5></li>
-                </ul>
-            </div>
-            <br>
-            <h3 class="foodTitle">Desserts</h3>
-            <br><br><br><br>
-            <div class="deserts"> 
-                <ul class="whitebackground">
-                    <li>S'mores Nachos $2.00</li>
-                    <li>Ice Cream</li>
-                    <li><h5>Small $1.00, Large $2.00</h5></li>
-                    <li>Shaved Ice $2.00</li>
-                    <li>Brownie $1.00</li>
-                </ul>
-            </div>
-            <a href="https://truckerbug.github.io/pages/cafe/review/index.html"><h2>Write A Review</h2></a>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Sandwiches</h3><span class="price alt">varies</span></div>
+        <p style="margin:0.5rem 0 0; font-size:0.9rem;">Pick your fillings below and we'll build it fresh — see the Build-a-Sandwich station!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="build">
+    <div class="section-head"><span class="icon">🧀</span><h2>Build-a-Sandwich</h2></div>
+    <p class="section-note">Just tell us what you want in your sandwich and we'll make it! Price is set by your chef on the spot.</p>
+    <div class="builder">
+      <h3>Pick your fillings</h3>
+      <ul class="fillings" id="fillingsList">
+        <li><label><input type="checkbox" value="Peanut Butter"> Peanut Butter</label></li>
+        <li><label><input type="checkbox" value="Jelly"> Jelly</label></li>
+        <li><label><input type="checkbox" value="Ham"> Ham</label></li>
+        <li><label><input type="checkbox" value="Cheese"> Cheese</label></li>
+        <li><label><input type="checkbox" value="Turkey"> Turkey</label></li>
+        <li><label><input type="checkbox" value="Pickles"> Pickles</label></li>
+        <li><label><input type="checkbox" value="Lettuce"> Lettuce</label></li>
+        <li><label><input type="checkbox" value="Mayo"> Mayo</label></li>
+        <li><label><input type="checkbox" value="Mustard"> Mustard</label></li>
+        <li><label><input type="checkbox" value="Ketchup"> Ketchup</label></li>
+      </ul>
+      <div class="order-summary" id="orderSummary" aria-live="polite">
+        <span class="empty">Check a few boxes above and read your order back to the chef!</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="dessert">
+    <div class="section-head"><span class="icon">🍨</span><h2>Dessert</h2></div>
+    <div class="card-grid">
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>S'mores Nachos</h3><span class="price">$1.50</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Ice Cream</h3></div>
+        <div class="price-row">
+          <span class="price-chip">Small — $1.50</span>
+          <span class="price-chip">Large — $2.50</span>
         </div>
+        <div class="tags"><span>Vanilla</span><span>Chocolate</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Brownie</h3><span class="price">$1.00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="drinks">
+    <div class="section-head"><span class="icon">🥤</span><h2>Beverages</h2></div>
+    <div class="card-grid">
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Sparkling Water</h3><span class="price">$1.00</span></div>
+        <div class="tags"><span>Tangerine</span><span>Passionfruit</span><span>Keylime</span><span>Mojito</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Poppi's</h3><span class="price">$1.25</span></div>
+        <div class="tags"><span>Wild Berry</span><span>Strawberry Lemon</span><span>Orange Cream</span><span>Raspberry Rose</span><span>Cherry Limeade</span><span>Shirley Temple</span></div>
+      </div>
+      <div class="card"><span class="pin"></span>
+        <div class="card-top"><h3>Lemonade</h3><span class="price">$0.50</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="signoff">Thanks for stopping by Lemolo Café!</p>
+  <p>Cash, coins, and compliments to the chefs all accepted. Family &amp; friends only — see you at the next sitting. 🌿</p>
+</footer>
+
+<script>
+  (function(){
+    var fillingsList = document.getElementById('fillingsList');
+    var orderSummary = document.getElementById('orderSummary');
+
+    fillingsList.addEventListener('change', function(){
+      var checked = Array.prototype.slice.call(
+        fillingsList.querySelectorAll('input[type="checkbox"]:checked')
+      ).map(function(cb){ return cb.value; });
+
+      if(checked.length === 0){
+        orderSummary.innerHTML = '<span class="empty">Check a few boxes above and read your order back to the chef!</span>';
+      } else {
+        orderSummary.textContent = "One sandwich with: " + checked.join(', ') + ".";
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
